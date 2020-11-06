@@ -15,6 +15,7 @@ var myIcon = L.icon({
 const marker=L.marker([0, 0],{icon: myIcon}).addTo(mymap);
 
 const api_url='https://api.wheretheiss.at/v1/satellites/25544'
+
 async function getData()
 {
     const response = await fetch(api_url)
@@ -37,9 +38,4 @@ async function getData()
     marker.setLatLng([data.latitude,data.longitude])
 }
 
-async function interval()
-{
-    await setInterval(getData,1000)
-}
-
-interval()
+setInterval(getData,1000)
