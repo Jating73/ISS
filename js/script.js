@@ -27,20 +27,25 @@ async function getData()
     const lat=document.getElementById('lat')
     const long=document.getElementById('long')
 
+    time.textContent="Loading..."
+    alt.textContent="Loading..."
+    vel.textContent="Loading..."
+    lat.textContent="Loading..."
+    long.textContent="Loading..."
+
     const date=new Date(data.timestamp)
 
+    marker.setLatLng([data.latitude,data.longitude])
+    if(firstTime)
+    {
+        mymap.setView([data.latitude,data.longitude],2)
+        firstTime=false
+    }
     time.textContent=date.toLocaleTimeString()
     alt.textContent=data.altitude
     vel.textContent=data.velocity
     lat.textContent=data.latitude
     long.textContent=data.longitude
-    
-    marker.setLatLng([data.latitude,data.longitude])
-    if(firstTime)
-    {
-        mymap.setView([data.latitude,data.longitude],5)
-        firstTime=false
-    }
 
 }
 
