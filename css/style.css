@@ -2,6 +2,15 @@
     margin: 0;
     padding: 0;
 }
+.row{
+    margin-right: 0;
+}
+#Map{
+    padding: 13px 13px 0px 16px;
+}
+#details{
+    padding: 17px 0px;
+}
 #mapid { 
     height: 500px; 
 }
